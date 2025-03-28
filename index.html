@@ -76,6 +76,26 @@
       font-style: italic;
       margin-bottom: 10px;
     }
+    .btn-cv {
+      background-color: #0563bb;
+      color: #fff;
+      border-radius: 25px;
+      padding: 8px 25px;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+    .btn-cv:hover {
+      background-color: #0e7eda;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .research-highlight {
+      background-color: rgba(5, 99, 187, 0.05);
+      border-left: 3px solid #0563bb;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 5px 5px 0;
+    }
   </style>
 </head>
 
@@ -89,7 +109,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile_img.JPG" alt="profile picture" class="img-fluid rounded-circle">
+        <img src="assets/img/profile.jpg" alt="profile picture" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Pragya Singh</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/pragya-singh-438508113" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -105,7 +125,6 @@
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#awards" class="nav-link scrollto"><i class="bx bx-award"></i> <span>Awards</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
@@ -133,7 +152,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile.jpg" class="img-fluid shadow" alt="profile picture">
+            <img src="assets/img/profile.jpg" class="img-fluid shadow rounded" alt="profile picture">
             <div class="mt-3 info-box">
               <h5><i class="bi bi-geo-alt me-2"></i>Location</h5>
               <p class="mb-0">IIIT-Delhi, New Delhi, India</p>
@@ -143,15 +162,24 @@
               <p class="mb-0">pragyas@iiitd.ac.in</p>
               <p class="mb-0">pragyasingh18rathore@gmail.com</p>
             </div>
+            <div class="text-center">
+              <a href="assets/files/Pragya_Singh_CV.pdf" class="btn btn-cv" download><i class="bi bi-file-earmark-text me-2"></i>Download CV</a>
+            </div>
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0" data-aos="fade-left">
             <h3>PhD Candidate at IIIT-Delhi</h3>
-            <p>
-              I am a fourth-year Ph.D. candidate at IIIT-Delhi, India. My research lies at the intersection of artificial intelligence, ubiquitous computing, human-computer interaction (HCI), and healthcare. My thesis focuses on developing predictive models for mental health assessment by leveraging physiological signals and other non-invasive data from wearable and mobile devices.
-            </p>
-            <p>
-              Within my research, I aim to understand the emotion data from HCI perspectives to accommodate for complexities in emotion data and further design algorithms for emotion recognition in everyday settings.
-            </p>
+            
+            <div class="research-highlight">
+              <p>
+                I'm a fourth-year Ph.D. candidate at IIIT-Delhi, exploring the fascinating intersection where technology meets human emotions. My research bridges multiple disciplines: artificial intelligence, ubiquitous computing, human-computer interaction, and healthcare.
+              </p>
+              <p>
+                Imagine a world where your wearable device not only tracks your steps but understands your emotional state. I'm developing predictive models that decode the subtle language of physiological signals—your heartbeat, skin conductance, body temperature—to assess mental well-being in everyday settings. This interdisciplinary approach allows me to build AI systems that are both technically robust and deeply human-centered.
+              </p>
+              <p>
+                What makes my work unique is its focus on the complexities of emotion data through an HCI lens. By understanding how humans experience, express, and report emotions, I design algorithms that can recognize emotional patterns more accurately in real-world environments—where data is messy, context matters, and individual differences abound.
+              </p>
+            </div>
             
             <div class="about-content">
               <h5>Research Interests</h5>
@@ -188,7 +216,7 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Publications Section (Moved up) ======= -->
+    <!-- ======= Publications Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
@@ -248,91 +276,6 @@
         </div>
       </div>
     </section><!-- End Publications Section -->
-
-    <!-- ======= Resume Section (Moved down) ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>   
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Ph.D.</h3>
-            <div class="resume-item pb-0">
-              <h4>Pragya Singh</h4>
-              <p><em>I'm currently pursuing Ph.D.at IIITD, India, under the guidance of <a href="https://www.iiitd.ac.in/pushpendra">Prof. Pushpendra Singh</a>, IIITD, India, and <a href="https://www.rit.edu/directory/mjkvcs-mohan-kumar">Prof. Mohan Kumar</a>, RIT, USA. 
-              I work on <b>"Wearable AI for Mental Health in Everyday Settings using Human-Centric Approaches"</b>.</em></p>
-              <h4>Started in August 2021</h4>
-            </div>
-            
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Doctor of Philosophy & M.Tech in Computer Science and Engineering (AI Specialization)</h4>
-              <h5>2021-Present</h5>
-              <p><em>Indraprastha Institute of Information Technology, New Delhi, India</em></p>
-              <p>I am pursuing PhD in Department of Computer Science and Engineering along with M.Tech (AI Specialization). My thesis is directed towards interdisciplinary research at the intersection of Wearables, Efficient AI and mental health monitoring, management and
-              diagnosis. Course-work: Machine Learning, Deep Learning, Bayesian Machine Learning, Reinforcement Learning, Interactive Systems, Algorithms. On-going GPA: 8.48%</p>
-            </div>
-            <div class="resume-item">
-              <h4>Diploma in Embedded Systems Engineering</h4>
-              <h5>2018 - 2019</h5>
-              <p><em>Centre for Development of Advanced Computing (C-DAC), ACTS, Pune, India</em></p>
-              <p>Course-work: C, C++, Embedded systems, Communication protocols, Android development. Percentage: 79.29%</p>
-            </div>
-            <div class="resume-item">
-              <h4>B.Tech in Electronics and Communication Engineering</h4>
-              <h5>2014 - 2018</h5>
-              <p><em>Institute of Engineering and Technology, Dr. Ram Manohar Lohia, Awadh University, U.P, India</em></p>
-              <p>Percentage: 78.3%</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Research Intern</h4>
-              <h5>February 2022 - July 2022</h5>
-              <p><em>Embedded Devices and Intelligent Systems Lab, TCS Research</em></p>
-              <ul>
-                <li>Worked on Platform-Aware Neural Architecture Search for ECG classification on wearables.</li>
-                <li>Contributed in benchmarking for Tiny DNNs generation using Hardware aware NAS for the task of single lead ECG classification in wearables.</li>
-                <li>Conducted a State-of-the-Art survey on NAS techniques for various tasks like image classification and object detection.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Embedded Systems Engineer (R & D)</h4>
-              <h5>2020 - 2021</h5>
-              <p><em>Lohia Mechatronik, Pune, India </em></p>
-              <ul>
-                <li>Developed and troubleshooted Baremetal Embedded software for manufacturing facilities.</li>
-                <li>Worked on machine vision and sensor automation for manufacturing facilities.</li>
-                <li>Automated induction motors and temperature-based actuators using CANopen and microcontrollers.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Embedded Software Engineer</h4>
-              <h5>2019 - 2020</h5>
-              <p><em>KPIT Technologies, Pune, India</em></p>
-              <ul>
-                <li>Configured complex device drivers, communication stacks, and diagnostic systems for classic AUTOSAR.</li>
-                <li>Derived verification criteria and conducted MIL testing for Software components.</li>
-              </ul>
-            </div>
-            
-            <h3 class="resume-title">Teaching</h3>
-            <div class="resume-item">
-              <h4>Teaching Assistant</h4>
-              <p><em>IIIT-Delhi</em></p>
-              <ul>
-                <li>Mobile Computing, Computer Networks, Research Methods, Interactive Systems (Best TA award)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
     
     <!-- ======= Awards Section ======= -->
     <section id="awards" class="services">
