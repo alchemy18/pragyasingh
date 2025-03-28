@@ -96,13 +96,65 @@
       margin: 20px 0;
       border-radius: 0 5px 5px 0;
     }
+    
+    /* Add new styles for sidebar behavior */
+    #header {
+      position: fixed;
+      top: 0;
+      left: -300px; /* Start with sidebar hidden */
+      bottom: 0;
+      width: 300px;
+      transition: all ease-in-out 0.5s;
+      z-index: 9997;
+      padding: 0 15px;
+      background: #040b14; /* Adjust if needed to match your current sidebar color */
+    }
+    
+    #header.header-active {
+      left: 0; /* Show sidebar when active class is added */
+    }
+    
+    /* Make sure the main content always takes the full width by default */
+    #main, #hero {
+      margin-left: 0 !important;
+      width: 100% !important;
+      transition: all ease-in-out 0.5s;
+    }
+    
+    /* Position the mobile nav toggle */
+    .mobile-nav-toggle {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      z-index: 9998;
+      border: 0;
+      font-size: 24px;
+      transition: all 0.4s;
+      outline: none !important;
+      background-color: #149ddd; /* Adjust to match your theme */
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    
+    /* Make the mobile nav toggle visible on all screen sizes */
+    .mobile-nav-toggle {
+      display: block !important;
+    }
   </style>
 </head>
 
 <body>
 
   <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- Modified to be visible on all screen sizes by removing d-xl-none class -->
+  <i class="bi bi-list mobile-nav-toggle"></i>
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -349,6 +401,39 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Add sidebar toggle functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the toggle button and header elements
+      const navToggle = document.querySelector('.mobile-nav-toggle');
+      const header = document.getElementById('header');
+      
+      // Add click event to toggle menu
+      navToggle.addEventListener('click', function() {
+        header.classList.toggle('header-active');
+        
+        // Change the icon based on menu state
+        if (header.classList.contains('header-active')) {
+          navToggle.classList.remove('bi-list');
+          navToggle.classList.add('bi-x');
+        } else {
+          navToggle.classList.remove('bi-x');
+          navToggle.classList.add('bi-list');
+        }
+      });
+      
+      // Close menu when clicking on nav links
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          header.classList.remove('header-active');
+          navToggle.classList.remove('bi-x');
+          navToggle.classList.add('bi-list');
+        });
+      });
+    });
+  </script>
 
 </body>
 
