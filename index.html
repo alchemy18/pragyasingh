@@ -27,12 +27,56 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iPortfolio - v3.7.0
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .about-content {
+      margin-top: 20px;
+    }
+    .skill-badge {
+      display: inline-block;
+      background-color: #f8f9fa;
+      color: #0563bb;
+      border: 1px solid #0563bb;
+      border-radius: 15px;
+      padding: 4px 12px;
+      margin: 4px;
+      font-size: 0.9rem;
+    }
+    .info-box {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .info-box h5 {
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .publication-item {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+    .publication-title {
+      margin-bottom: 5px;
+    }
+    .publication-title a {
+      color: #0563bb;
+      font-weight: 600;
+    }
+    .publication-title a:hover {
+      text-decoration: underline;
+    }
+    .publication-meta {
+      color: #6c757d;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -60,8 +104,8 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Publications</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#awards" class="nav-link scrollto"><i class="bx bx-award"></i> <span>Awards</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
@@ -85,31 +129,57 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>I am a fourth-year Ph.D. candidate at IIIT-Delhi, India. My research lies at the intersection of artificial intelligence, ubiquitous computing, human-computer interaction (HCI), and healthcare. My thesis focuses on developing predictive models for mental health assessment by leveraging physiological signals and other non-invasive data from wearable and mobile devices. Within my research, I aim to understand the emotion data from HCI perspectives to accommodate for complexities in emotion data and further design algorithms for emotion recognition in everyday settings.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile_img.JPG" class="img-fluid" alt="profile picture">
+            <img src="assets/img/profile_img.JPG" class="img-fluid shadow" alt="profile picture">
+            <div class="mt-3 info-box">
+              <h5><i class="bi bi-geo-alt me-2"></i>Location</h5>
+              <p class="mb-0">IIIT-Delhi, New Delhi, India</p>
+            </div>
+            <div class="info-box">
+              <h5><i class="bi bi-envelope me-2"></i>Email</h5>
+              <p class="mb-0">pragyas@iiitd.ac.in</p>
+              <p class="mb-0">pragyasingh18rathore@gmail.com</p>
+            </div>
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>PhD Candidate</h3>
-            <p class="fst-italic">
-              <b>Research Interest</b>: HCAI, AI for Healthcare, Emotion Recognition, Representation Learning, Multimodal Learning, Data-centric AI
+          <div class="col-lg-8 pt-4 pt-lg-0" data-aos="fade-left">
+            <h3>PhD Candidate at IIIT-Delhi</h3>
+            <p>
+              I am a fourth-year Ph.D. candidate at IIIT-Delhi, India. My research lies at the intersection of artificial intelligence, ubiquitous computing, human-computer interaction (HCI), and healthcare. My thesis focuses on developing predictive models for mental health assessment by leveraging physiological signals and other non-invasive data from wearable and mobile devices.
             </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>pragyas@iiitd.ac.in</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New Delhi, India</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Skills:</strong> <p>Deep Learning, Machine Learning, Physiological Signal Processing, TinyML</p></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Reviewer:</strong> <p>CHI, CSCW, IMWUT, UbiComp, Percom, WiML workshop (Neurips)</p></li>
-                </ul>
+            <p>
+              Within my research, I aim to understand the emotion data from HCI perspectives to accommodate for complexities in emotion data and further design algorithms for emotion recognition in everyday settings.
+            </p>
+            
+            <div class="about-content">
+              <h5>Research Interests</h5>
+              <div>
+                <span class="skill-badge">HCAI</span>
+                <span class="skill-badge">AI for Healthcare</span>
+                <span class="skill-badge">Emotion Recognition</span>
+                <span class="skill-badge">Representation Learning</span>
+                <span class="skill-badge">Multimodal Learning</span>
+                <span class="skill-badge">Data-centric AI</span>
               </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Volunteer:</strong> <p>ACM Compass 2024 Organizing Team, TinyML India Organizing Team, <b>Program Co-chair:</b> <a href="https://sites.google.com/view/automlpersys2025/">AutoMLPerSys 2025</a> & <b>Steering Committee:</b> <a href="https://sites.google.com/view/automlpersys2024/organizers">AutoMLPerSys 2024</a> (Co-located with PERCOM).</p></li>
-                </ul>
+            </div>
+            
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="info-box">
+                  <h5><i class="bi bi-check2-square me-2"></i>Professional Activities</h5>
+                  <p class="mb-0"><strong>Reviewer:</strong> CHI, CSCW, IMWUT, UbiComp, Percom, WiML workshop (Neurips)</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box">
+                  <h5><i class="bi bi-people me-2"></i>Volunteering</h5>
+                  <p class="mb-0">ACM Compass 2024 Organizing Team</p>
+                  <p class="mb-0">TinyML India Organizing Team</p>
+                  <p class="mb-0"><strong>Program Co-chair:</strong> AutoMLPerSys 2025</p>
+                  <p class="mb-0"><strong>Steering Committee:</strong> AutoMLPerSys 2024</p>
+                </div>
               </div>
             </div>
           </div>
@@ -118,7 +188,68 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Resume Section ======= -->
+    <!-- ======= Publications Section (Moved up) ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Publications</h2>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12">
+            
+            <div class="publication-item">
+              <h4 class="publication-title">
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/1cba8502063fab9df252a63968691768-Paper-Datasets_and_Benchmarks_Track.pdf">EEVR: A Dataset of Paired Physiological Signals and Textual Descriptions for Joint Emotion Representation Learnings</a>
+              </h4>
+              <p class="publication-meta">NeurIPS 2024, Dataset and Benchmark Track (September 2024)</p>
+              <p><strong>Authors:</strong> Pragya Singh, Ritvik Budhiraja, Ankush Gupta, Anshul Goswami, Mohan Kumar, Pushpendra Singh</p>
+              <p>The EEVR (Emotion Elicitation in Virtual Reality) dataset is a novel resource created for language-supervision-based pre-training and emotion recognition tasks, such as classifying valence and arousal. It includes high-quality physiological signals paired with qualitative textual descriptions of emotions. We evaluated the dataset using the Contrastive Language Signal Pre-training (CLSP) method, which combines physiological signals with self-reported emotional annotations. This approach significantly improved performance in emotion recognition, with a 20% increase in arousal classification and a 10% increase in valence classification.</p>
+            </div>
+            
+            <div class="publication-item">
+              <h4 class="publication-title">
+                <a href="https://arxiv.org/pdf/2503.19636">Translating Emotions to Annotations: A Participant's Perspective of Physiological Emotion Data Collection</a>
+              </h4>
+              <p class="publication-meta">CSCW 2024 (September 2024)</p>
+              <p><strong>Authors:</strong> Pragya Singh, Ritvik Budhiraja, Mohan Kumar, Pushpendra Singh</p>
+              <p>Physiological signals hold immense potential for ubiquitous emotion monitoring, presenting numerous applications in emotion recognition. However, harnessing this potential is hindered by significant challenges, particularly in the collection of annotations that align with physiological changes since the process hinges heavily on human participants. In this work, we set out to study the perspectives of human participants involved in the emotion data collection procedure using 360° virtual reality video stimulus followed by semi-structured interviews.</p>
+            </div>
+            
+            <div class="publication-item">
+              <h4 class="publication-title">
+                <a href="https://programs.sigchi.org/chi/2025/program/content/188903">"But I Won't Say That It Was Bad Seeing a Real Vagina": Understanding Perspectives toward Learning Sensitive-Critical Health Topic</a>
+              </h4>
+              <p class="publication-meta">CHI 2025 (January 2025)</p>
+              <p><strong>Authors:</strong> Sara Moin, Manshul Belani, Pragya Singh, Nishtha Phutela, Pushpendra Singh</p>
+              <p>In India, topics related to sexual and reproductive health (SRH) are rarely discussed openly due to stigma. To understand the attitudes towards SRH, we designed a Cervical cancer awareness tutorial in Virtual Reality and collected data from 66 participants across genders and life stages through interviews, self-reported emotions, and physiological sensor data. Our findings revealed an acute lack of knowledge about self-body anatomy and a need for creating health literacy.</p>
+            </div>
+            
+            <div class="publication-item">
+              <h4 class="publication-title">
+                <a href="https://arxiv.org/pdf/2406.14908">Can we say a cat is a cat? Understanding the challenges in annotating physiological signal-based emotion data</a>
+              </h4>
+              <p class="publication-meta">PhysioCHI, CHI 2024 Workshop (June 2024)</p>
+              <p><strong>Authors:</strong> Pragya Singh, Mohan Kumar, Pushpendra Singh</p>
+              <p>This paper presents a position discussion on the current technique of annotating physiological signal-based emotion data. Our discourse underscores the importance of adopting a nuanced understanding of annotation processes, paving the way for a more insightful exploration of the intricate relationship between physiological signals and human emotions.</p>
+            </div>
+            
+            <div class="publication-item">
+              <h4 class="publication-title">
+                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10150311">Generating Tiny Deep Neural Networks for ECG Classification on MicroControllers</a>
+              </h4>
+              <p class="publication-meta">IEEE International Conference on Pervasive Computing, PerCom Industry Track 2023 (March 2023)</p>
+              <p><strong>Authors:</strong> S. Mukhopadhyay, S. Dey, A. Ghose, Pragya Singh and P. Dasgupta</p>
+              <p>This paper shows that Neural Architecture Search (NAS) can be used to generate tiny but accurate multi-objective models for classifying ECG signals. Our framework is the first of its kind for automatically generating a DNN for screening Atrial Fibrillation on an MCU. Moreover, our research shows that the proposed NAS finds more accurate tiny models than human-designed ones and is effective in enabling customized solutions for a resource-limited target platform.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section><!-- End Publications Section -->
+
+    <!-- ======= Resume Section (Moved down) ======= -->
     <section id="resume" class="resume">
       <div class="container">
 
@@ -202,52 +333,6 @@
 
       </div>
     </section><!-- End Resume Section -->
-
-    <!-- ======= Publications Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Publications</h2>
-          
-          <div class="publication-item">
-            <h4><a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/1cba8502063fab9df252a63968691768-Paper-Datasets_and_Benchmarks_Track.pdf">EEVR: A Dataset of Paired Physiological Signals and Textual Descriptions for Joint Emotion Representation Learnings</a></h4>
-            <p><em>NeurIPS 2024, Dataset and Benchmark Track (September 2024)</em></p>
-            <p><strong>Authors:</strong> Pragya Singh, Ritvik Budhiraja, Ankush Gupta, Anshul Goswami, Mohan Kumar, Pushpendra Singh</p>
-            <p>The EEVR (Emotion Elicitation in Virtual Reality) dataset is a novel resource created for language-supervision-based pre-training and emotion recognition tasks, such as classifying valence and arousal. It includes high-quality physiological signals paired with qualitative textual descriptions of emotions. We evaluated the dataset using the Contrastive Language Signal Pre-training (CLSP) method, which combines physiological signals with self-reported emotional annotations. This approach significantly improved performance in emotion recognition, with a 20% increase in arousal classification and a 10% increase in valence classification.</p>
-          </div>
-          
-          <div class="publication-item">
-            <h4><a href="https://arxiv.org/pdf/2503.19636">Translating Emotions to Annotations: A Participant's Perspective of Physiological Emotion Data Collection</a></h4>
-            <p><em>CSCW 2024 (September 2024)</em></p>
-            <p><strong>Authors:</strong> Pragya Singh, Ritvik Budhiraja, Mohan Kumar, Pushpendra Singh</p>
-            <p>Physiological signals hold immense potential for ubiquitous emotion monitoring, presenting numerous applications in emotion recognition. However, harnessing this potential is hindered by significant challenges, particularly in the collection of annotations that align with physiological changes since the process hinges heavily on human participants. In this work, we set out to study the perspectives of human participants involved in the emotion data collection procedure using 360° virtual reality video stimulus followed by semi-structured interviews.</p>
-          </div>
-          
-          <div class="publication-item">
-            <h4><a href="https://programs.sigchi.org/chi/2025/program/content/188903">"But I Won't Say That It Was Bad Seeing a Real Vagina": Understanding Perspectives toward Learning Sensitive-Critical Health Topic</a></h4>
-            <p><em>CHI 2025 (January 2025)</em></p>
-            <p><strong>Authors:</strong> Sara Moin, Manshul Belani, Pragya Singh, Nishtha Phutela, Pushpendra Singh</p>
-            <p>In India, topics related to sexual and reproductive health (SRH) are rarely discussed openly due to stigma. To understand the attitudes towards SRH, we designed a Cervical cancer awareness tutorial in Virtual Reality and collected data from 66 participants across genders and life stages through interviews, self-reported emotions, and physiological sensor data. Our findings revealed an acute lack of knowledge about self-body anatomy and a need for creating health literacy.</p>
-          </div>
-          
-          <div class="publication-item">
-            <h4><a href="https://arxiv.org/pdf/2406.14908">Can we say a cat is a cat? Understanding the challenges in annotating physiological signal-based emotion data</a></h4>
-            <p><em>PhysioCHI, CHI 2024 Workshop (June 2024)</em></p>
-            <p><strong>Authors:</strong> Pragya Singh, Mohan Kumar, Pushpendra Singh</p>
-            <p>This paper presents a position discussion on the current technique of annotating physiological signal-based emotion data. Our discourse underscores the importance of adopting a nuanced understanding of annotation processes, paving the way for a more insightful exploration of the intricate relationship between physiological signals and human emotions.</p>
-          </div>
-          
-          <div class="publication-item">
-            <h4><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10150311">Generating Tiny Deep Neural Networks for ECG Classification on MicroControllers</a></h4>
-            <p><em>IEEE International Conference on Pervasive Computing, PerCom Industry Track 2023 (March 2023)</em></p>
-            <p><strong>Authors:</strong> S. Mukhopadhyay, S. Dey, A. Ghose, Pragya Singh and P. Dasgupta</p>
-            <p>This paper shows that Neural Architecture Search (NAS) can be used to generate tiny but accurate multi-objective models for classifying ECG signals. Our framework is the first of its kind for automatically generating a DNN for screening Atrial Fibrillation on an MCU. Moreover, our research shows that the proposed NAS finds more accurate tiny models than human-designed ones and is effective in enabling customized solutions for a resource-limited target platform.</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Publications Section -->
     
     <!-- ======= Awards Section ======= -->
     <section id="awards" class="services">
