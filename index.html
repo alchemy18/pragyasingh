@@ -28,114 +28,60 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <style>
-    .about-content {
-      margin-top: 20px;
+    /* General Layout and Sidebar Styles */
+    body {
+      transition: margin-left 0.5s ease-in-out;
     }
-    .skill-badge {
-      display: inline-block;
-      background-color: #f8f9fa;
-      color: #0563bb;
-      border: 1px solid #0563bb;
-      border-radius: 15px;
-      padding: 4px 12px;
-      margin: 4px;
-      font-size: 0.9rem;
-    }
-    .info-box {
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      background-color: #f8f9fa;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .info-box h5 {
-      color: #0563bb;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .publication-item {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e9ecef;
-    }
-    .publication-item:last-child {
-      border-bottom: none;
-    }
-    .publication-title {
-      margin-bottom: 5px;
-    }
-    .publication-title a {
-      color: #0563bb;
-      font-weight: 600;
-    }
-    .publication-title a:hover {
-      text-decoration: underline;
-    }
-    .publication-meta {
-      color: #6c757d;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .btn-cv {
-      background-color: #0563bb;
-      color: #fff;
-      border-radius: 25px;
-      padding: 8px 25px;
-      transition: all 0.3s;
-      margin-top: 20px;
-    }
-    .btn-cv:hover {
-      background-color: #0e7eda;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .research-highlight {
-      background-color: rgba(5, 99, 187, 0.05);
-      border-left: 3px solid #0563bb;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 5px 5px 0;
-    }
-    
-    /* Add new styles for sidebar behavior */
+
     #header {
       position: fixed;
       top: 0;
-      left: -300px; /* Start with sidebar hidden */
+      left: 0;
       bottom: 0;
       width: 300px;
       transition: all ease-in-out 0.5s;
       z-index: 9997;
       padding: 0 15px;
-      background: #040b14; /* Adjust if needed to match your current sidebar color */
+      background: #040b14;
+      overflow-y: auto;
     }
-    
-    #header.header-active {
-      left: 0; /* Show sidebar when active class is added */
+
+    #content-wrapper {
+      transition: margin-left 0.5s ease-in-out;
+      width: 100%;
     }
-    
-    /* Make sure the main content always takes the full width by default */
-    #main, #hero {
-      margin-left: 0 !important;
-      width: 100% !important;
-      transition: all ease-in-out 0.5s;
+
+    /* State when sidebar is active/visible */
+    body.sidebar-active #header {
+      left: 0;
     }
-    
-    /* Position the mobile nav toggle on the left side instead of right */
+
+    /* On larger screens, push the content to the right */
+    @media (min-width: 1200px) {
+      body.sidebar-active #content-wrapper {
+        margin-left: 300px;
+      }
+
+      #header {
+        left: -300px; /* Hide by default on desktop */
+      }
+    }
+
+    /* Mobile Nav Toggle Button */
     .mobile-nav-toggle {
       position: fixed;
-      left: 15px; /* Changed from right to left */
+      left: 15px;
       top: 15px;
       z-index: 9998;
       border: 0;
       font-size: 24px;
       transition: all 0.4s;
       outline: none !important;
-      background-color: #149ddd; /* Adjust to match your theme */
+      background-color: #149ddd;
       color: #fff;
       width: 40px;
       height: 40px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       line-height: 0;
@@ -143,67 +89,58 @@
       cursor: pointer;
     }
     
-    /* Make the mobile nav toggle visible on all screen sizes */
-    .mobile-nav-toggle {
-      display: block !important;
+    /* Hero Section Responsive Banner */
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url('assets/Background.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed; /* Parallax effect on desktop */
+      position: relative;
     }
 
-    /* New Footer Styles */
+    /* On mobile, disable parallax for better performance */
+    @media (max-width: 768px) {
+      #hero {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Other Styles */
+    .about-content { margin-top: 20px; }
+    .skill-badge { display: inline-block; background-color: #f8f9fa; color: #0563bb; border: 1px solid #0563bb; border-radius: 15px; padding: 4px 12px; margin: 4px; font-size: 0.9rem; }
+    .info-box { padding: 15px; border-radius: 8px; margin-bottom: 15px; background-color: #f8f9fa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .info-box h5 { color: #0563bb; font-weight: 600; margin-bottom: 10px; }
+    .publication-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e9ecef; }
+    .publication-item:last-child { border-bottom: none; }
+    .publication-title { margin-bottom: 5px; }
+    .publication-title a { color: #0563bb; font-weight: 600; }
+    .publication-title a:hover { text-decoration: underline; }
+    .publication-meta { color: #6c757d; font-style: italic; margin-bottom: 10px; }
+    .btn-cv { background-color: #0563bb; color: #fff; border-radius: 25px; padding: 8px 25px; transition: all 0.3s; margin-top: 20px; }
+    .btn-cv:hover { background-color: #0e7eda; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .research-highlight { background-color: rgba(5, 99, 187, 0.05); border-left: 3px solid #0563bb; padding: 15px; margin: 20px 0; border-radius: 0 5px 5px 0; }
+    
+    /* Footer Styles */
     #footer {
-      background: #f8f9fa; /* A very light grey background */
+      background: #f8f9fa;
       padding: 30px 0;
       text-align: center;
       font-size: 14px;
     }
-    #footer h3 {
-      font-size: 32px;
-      font-weight: 700;
-      font-family: "Poppins", sans-serif;
-      color: #111;
-      margin: 0 0 15px 0;
-    }
-    #footer p {
-      font-size: 15px;
-      font-style: italic;
-      padding: 0;
-      margin: 0 0 20px 0;
-      color: #555;
-    }
-    #footer .social-links {
-      margin-bottom: 20px;
-    }
-    #footer .social-links a {
-      font-size: 18px;
-      display: inline-block;
-      background: #0563bb;
-      color: #fff;
-      line-height: 1;
-      padding: 8px 0;
-      margin: 0 4px;
-      border-radius: 50%;
-      text-align: center;
-      width: 36px;
-      height: 36px;
-      transition: 0.3s;
-    }
-    #footer .social-links a:hover {
-      background: #0678e3;
-      color: #fff;
-      text-decoration: none;
-    }
-    #footer .copyright {
-      color: #6c757d;
-    }
+    #footer h3 { font-size: 32px; font-weight: 700; font-family: "Poppins", sans-serif; color: #111; margin: 0 0 15px 0; }
+    #footer p { font-size: 15px; font-style: italic; padding: 0; margin: 0 0 20px 0; color: #555; }
+    #footer .social-links { margin-bottom: 20px; }
+    #footer .social-links a { font-size: 18px; display: inline-block; background: #0563bb; color: #fff; line-height: 1; padding: 8px 0; margin: 0 4px; border-radius: 50%; text-align: center; width: 36px; height: 36px; transition: 0.3s; }
+    #footer .social-links a:hover { background: #0678e3; color: #fff; text-decoration: none; }
+    #footer .copyright { color: #6c757d; }
   </style>
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- Modified to be visible on all screen sizes by removing d-xl-none class -->
   <i class="bi bi-list mobile-nav-toggle"></i>
 
-  <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
 
@@ -227,117 +164,100 @@
           <li><a href="#awards" class="nav-link scrollto"><i class="bx bx-award"></i> <span>Awards</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background: url('assets/Background.png') top center; background-size: cover;">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Pragya Singh</h1>
-      <p>I'm <span class="typed" data-typed-items="PhD Scholar, Researcher, Thinker, Happy Soul, Always Curious"></span></p>
-    </div>
-  </section><!-- End Hero -->
+  <!-- ======= Content Wrapper ======= -->
+  <div id="content-wrapper">
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile.jpeg" class="img-fluid shadow rounded" alt="profile picture">
-            <div class="text-center">
-              <a href="assets/pragya_singh_phd__cv.pdf" class="btn btn-cv" download><i class="bi bi-file-earmark-text me-2"></i>Download CV</a>
-            </div>
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0" data-aos="fade-left">
-            <h3>PhD Candidate at IIIT-Delhi</h3>
-            
-            <div class="research-highlight">
-              <p>
-                I'm a fourth-year Ph.D. candidate at IIIT-Delhi, exploring the fascinating intersection where technology meets human emotions. My research bridges multiple disciplines: artificial intelligence, ubiquitous computing, human-computer interaction, and healthcare.
-              </p>
-              <p>
-                Imagine a world where your wearable device not only tracks your steps but understands your emotional state. I'm developing predictive models that decode the subtle language of physiological signals—your heartbeat, skin conductance, body temperature—to assess mental well-being in everyday settings. 
-              </p>
-              <p>
-                What makes my work unique is its focus on the complexities of emotion data through an HCI lens. By understanding how humans experience, express, and report emotions, I design algorithms that can recognize emotional patterns more accurately in real-world environments—where data is messy, context matters, and individual differences abound. This interdisciplinary approach allows me to build AI systems that are both technically robust and deeply human-centered.
-              </p>
-            </div>
-            
-            <div class="about-content">
-              <h5>Research Interests</h5>
-              <div>
-                <span class="skill-badge">HCAI</span>
-                <span class="skill-badge">AI for Healthcare</span>
-                <span class="skill-badge">Emotion Recognition</span>
-                <span class="skill-badge">Representation Learning</span>
-                <span class="skill-badge">Multimodal Learning</span>
-                <span class="skill-badge">Data-centric AI</span>
-                <span class="skill-badge">Responsible AI</span>
-              </div>
-            </div>
-            
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <div class="info-box">
-                  <h5><i class="bi bi-check2-square me-2"></i>Professional Activities</h5>
-                  <p class="mb-0"><strong>Reviewer:</strong> Neurips, CHI, CSCW, IMWUT, UbiComp, Percom, WiML workshop</p>
-                  <p><strong>TA:</strong> Interactive Systems, Mobile Computing, Research Methods, Computer Networks</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box">
-                  <h5><i class="bi bi-people me-2"></i>Volunteering</h5>
-                  <p class="mb-0">ACM Compass 2024 Organizing Team</p>
-                  <p class="mb-0">TinyML India Organizing Team</p>
-                  <p class="mb-0"><strong>Program Co-chair:</strong> AutoMLPerSys 2025</p>
-                  <p class="mb-0"><strong>Steering Committee:</strong> AutoMLPerSys 2024</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+      <div class="hero-container" data-aos="fade-in">
+        <h1>Pragya Singh</h1>
+        <p>I'm <span class="typed" data-typed-items="PhD Scholar, Researcher, Thinker, Happy Soul, Always Curious"></span></p>
       </div>
-    </section><!-- End About Section -->
+    </section>
 
-    <!-- ======= Publications Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
+    <main id="main">
+        <!-- All your sections like About, Publications, Contact go here -->
 
-        <div class="section-title">
-          <h2>Publications</h2>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12">
-            <div class="publication-item">
-              <h4 class="publication-title">
-                <a href="https://www.arxiv.org/pdf/2508.02680">AnnoSense: A Framework for Physiological Emotion Data Collection in Everyday Settings for AI</a>
-              </h4>
-              <p class="publication-meta">Proc. ACM Interact. Mob. Wearable Ubiquitous Technol., Vol. 9, No. 3, Article 131. Publication date: September 2025.</p>
-              <p>Authors: Pragya Singh, Ankush Gupta, Mohan Kumar, Pushpendra Singh</p>
-              <p>Emotional and mental well-being are crucial to our quality of life. With the rise of smartphones, wearables, and AI, we now have new ways to track emotions in real-world settings. But for AI to understand emotions well, it needs accurate, high-quality data—which is hard to collect in daily life. Our study explored these challenges by engaging 119 people, including the public and mental health professionals, through surveys, interviews, and focus groups. Based on their insights, we created AnnoSense, a framework of 15 clear, practical guidelines to improve everyday emotion data collection for AI. We then evaluated AnnoSense with 25 emotion AI experts, who found it helpful and adaptable. This work aims to make emotion data better for developing more effective and ethical emotion AI technologies.</p>
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4" data-aos="fade-right">
+                        <img src="assets/img/profile.jpeg" class="img-fluid shadow rounded" alt="profile picture">
+                        <div class="text-center">
+                            <a href="assets/pragya_singh_phd__cv.pdf" class="btn btn-cv" download><i class="bi bi-file-earmark-text me-2"></i>Download CV</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pt-4 pt-lg-0" data-aos="fade-left">
+                        <h3>PhD Candidate at IIIT-Delhi</h3>
+                        <div class="research-highlight">
+                            <p>I'm a fourth-year Ph.D. candidate at IIIT-Delhi, exploring the fascinating intersection where technology meets human emotions. My research bridges multiple disciplines: artificial intelligence, ubiquitous computing, human-computer interaction, and healthcare.</p>
+                            <p>Imagine a world where your wearable device not only tracks your steps but understands your emotional state. I'm developing predictive models that decode the subtle language of physiological signals—your heartbeat, skin conductance, body temperature—to assess mental well-being in everyday settings.</p>
+                            <p>What makes my work unique is its focus on the complexities of emotion data through an HCI lens. By understanding how humans experience, express, and report emotions, I design algorithms that can recognize emotional patterns more accurately in real-world environments—where data is messy, context matters, and individual differences abound. This interdisciplinary approach allows me to build AI systems that are both technically robust and deeply human-centered.</p>
+                        </div>
+                        <div class="about-content">
+                            <h5>Research Interests</h5>
+                            <div>
+                                <span class="skill-badge">HCAI</span>
+                                <span class="skill-badge">AI for Healthcare</span>
+                                <span class="skill-badge">Emotion Recognition</span>
+                                <span class="skill-badge">Representation Learning</span>
+                                <span class="skill-badge">Multimodal Learning</span>
+                                <span class="skill-badge">Data-centric AI</span>
+                                <span class="skill-badge">Responsible AI</span>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <h5><i class="bi bi-check2-square me-2"></i>Professional Activities</h5>
+                                    <p class="mb-0"><strong>Reviewer:</strong> Neurips, CHI, CSCW, IMWUT, UbiComp, Percom, WiML workshop</p>
+                                    <p><strong>TA:</strong> Interactive Systems, Mobile Computing, Research Methods, Computer Networks</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <h5><i class="bi bi-people me-2"></i>Volunteering</h5>
+                                    <p class="mb-0">ACM Compass 2024 Organizing Team</p>
+                                    <p class="mb-0">TinyML India Organizing Team</p>
+                                    <p class="mb-0"><strong>Program Co-chair:</strong> AutoMLPerSys 2025</p>
+                                    <p class="mb-0"><strong>Steering Committee:</strong> AutoMLPerSys 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="publication-item">
-              <h4 class="publication-title">
-                <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/1cba8502063fab9df252a63968691768-Paper-Datasets_and_Benchmarks_Track.pdf">EEVR: A Dataset of Paired Physiological Signals and Textual Descriptions for Joint Emotion Representation Learnings</a>
-              </h4>
-              <p class="publication-meta">NeurIPS 2024, Dataset and Benchmark Track (September 2024)</p>
-              <p>Authors: Pragya Singh, Ritvik Budhiraja, Ankush Gupta, Anshul Goswami, Mohan Kumar, Pushpendra Singh</p>
-              <p>The EEVR (Emotion Elicitation in Virtual Reality) dataset is a novel resource created for language-supervision-based pre-training and emotion recognition tasks, such as classifying valence and arousal. It includes high-quality physiological signals paired with qualitative textual descriptions of emotions. We evaluated the dataset using the Contrastive Language Signal Pre-training (CLSP) method, which combines physiological signals with self-reported emotional annotations. This approach significantly improved performance in emotion recognition, with a 20% increase in arousal classification and a 10% increase in valence classification.</p>
-               <a href="https://medium.com/@pragyas/teaching-machines-to-feel-clsp-eevr-is-the-multimodal-emotion-recognition-leap-for-wearable-ff2ec3cfaf80"><strong>Check Out the Blog!!</strong></a>
-            </div>
-            
-            <div class="publication-item">
+        </section><!-- End About Section -->
+
+        <!-- ======= Publications Section ======= -->
+        <section id="portfolio" class="portfolio section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Publications</h2>
+                </div>
+                <div class="row" data-aos="fade-up">
+                    <div class="col-lg-12">
+                        <div class="publication-item">
+                            <h4 class="publication-title"><a href="https://www.arxiv.org/pdf/2508.02680">AnnoSense: A Framework for Physiological Emotion Data Collection in Everyday Settings for AI</a></h4>
+                            <p class="publication-meta">Proc. ACM Interact. Mob. Wearable Ubiquitous Technol., Vol. 9, No. 3, Article 131. Publication date: September 2025.</p>
+                            <p>Authors: Pragya Singh, Ankush Gupta, Mohan Kumar, Pushpendra Singh</p>
+                            <p>Emotional and mental well-being are crucial to our quality of life. With the rise of smartphones, wearables, and AI, we now have new ways to track emotions in real-world settings. But for AI to understand emotions well, it needs accurate, high-quality data—which is hard to collect in daily life. Our study explored these challenges by engaging 119 people, including the public and mental health professionals, through surveys, interviews, and focus groups. Based on their insights, we created AnnoSense, a framework of 15 clear, practical guidelines to improve everyday emotion data collection for AI. We then evaluated AnnoSense with 25 emotion AI experts, who found it helpful and adaptable. This work aims to make emotion data better for developing more effective and ethical emotion AI technologies.</p>
+                        </div>
+                        <div class="publication-item">
+                            <h4 class="publication-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/1cba8502063fab9df252a63968691768-Paper-Datasets_and_Benchmarks_Track.pdf">EEVR: A Dataset of Paired Physiological Signals and Textual Descriptions for Joint Emotion Representation Learnings</a></h4>
+                            <p class="publication-meta">NeurIPS 2024, Dataset and Benchmark Track (September 2024)</p>
+                            <p>Authors: Pragya Singh, Ritvik Budhiraja, Ankush Gupta, Anshul Goswami, Mohan Kumar, Pushpendra Singh</p>
+                            <p>The EEVR (Emotion Elicitation in Virtual Reality) dataset is a novel resource created for language-supervision-based pre-training and emotion recognition tasks... This approach significantly improved performance in emotion recognition, with a 20% increase in arousal classification and a 10% increase in valence classification.</p>
+                            <a href="https://medium.com/@pragyas/teaching-machines-to-feel-clsp-eevr-is-the-multimodal-emotion-recognition-leap-for-wearable-ff2ec3cfaf80"><strong>Check Out the Blog!!</strong></a>
+                        </div>
+                        <div class="publication-item">
               <h4 class="publication-title">
                 <a href="https://dl.acm.org/doi/10.1145/3711093">Translating Emotions to Annotations: A Participant's Perspective of Physiological Emotion Data Collection</a>
               </h4>
@@ -373,97 +293,65 @@
               <p>Authors: Shalini Mukhopadhyay, Sougata Dey, Avik Ghose, Pragya Singh and P. Dasgupta</p>
               <p>This paper shows that Neural Architecture Search (NAS) can be used to generate tiny but accurate multi-objective models for classifying ECG signals. Our framework is the first of its kind for automatically generating a DNN for screening Atrial Fibrillation on an MCU. Moreover, our research shows that the proposed NAS finds more accurate tiny models than human-designed ones and is effective in enabling customized solutions for a resource-limited target platform.</p>
             </div>
-            
-          </div>
-        </div>
-      </div>
-    </section><!-- End Publications Section -->
-    
-    <!-- ======= Awards Section ======= -->
-    <section id="awards" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Awards and Fellowships</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-award"></i></div>
-            <h4 class="title">Chanakya Doctoral Fellowship</h4>
-            <p class="description">From Ihub Anubhuti (August 2024)</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-award"></i></div>
-            <h4 class="title">Gary Marsden Travel Awards</h4>
-            <p class="description">For Ubicomp 2025</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-airplane"></i></div>
-            <h4 class="title">Microsoft Conference Travel Grant</h4>
-            <p class="description">For NeurIPS 2024 (September 2024)</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-star"></i></div>
-            <h4 class="title">Award Finalist</h4>
-            <p class="description">For Poster Presentation at The Machine Learning Summer School in Okinawa 2024 (March 2024)</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Awards Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>If our research interests align, I would be grateful to connect and collaborate on new ideas.</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>IIITD, Delhi, India</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>pragyas@iiitd.ac.in</p>
-                <p>pragyasingh18rathore@gmail.com</p>
-              </div>
-            
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3504.8026265809!2d77.2709685!3d28.5456517!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x691393414902968e!2sIIIT-Delhi%20R%26D%20Building!5e0!3m2!1sen!2sin!4v1639315084076!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section><!-- End Publications Section -->
+
+        <!-- ======= Awards Section ======= -->
+        <section id="awards" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Awards and Fellowships</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"><div class="icon"><i class="bi bi-award"></i></div><h4 class="title">Chanakya Doctoral Fellowship</h4><p class="description">From Ihub Anubhuti (August 2024)</p></div>
+                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"><div class="icon"><i class="bi bi-award"></i></div><h4 class="title">Gary Marsden Travel Awards</h4><p class="description">For Ubicomp 2025</p></div>
+                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100"><div class="icon"><i class="bi bi-airplane"></i></div><h4 class="title">Microsoft Conference Travel Grant</h4><p class="description">For NeurIPS 2024 (September 2024)</p></div>
+                    <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200"><div class="icon"><i class="bi bi-star"></i></div><h4 class="title">Award Finalist</h4><p class="description">For Poster Presentation at The Machine Learning Summer School in Okinawa 2024 (March 2024)</p></div>
+                </div>
+            </div>
+        </section><!-- End Awards Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact</h2>
+                    <p>If our research interests align, I would be grateful to connect and collaborate on new ideas.</p>
+                </div>
+                <div class="row" data-aos="fade-in">
+                    <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="info">
+                            <div class="address"><i class="bi bi-geo-alt"></i><h4>Location:</h4><p>IIITD, Delhi, India</p></div>
+                            <div class="email"><i class="bi bi-envelope"></i><h4>Email:</h4><p>pragyas@iiitd.ac.in</p><p>pragyasingh18rathore@gmail.com</p></div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3504.8026265809!2d77.2709685!3d28.5456517!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x691393414902968e!2sIIIT-Delhi%20R%26D%20Building!5e0!3m2!1sen!2sin!4v1639315084076!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        <h3>Pragya Singh</h3>
+        <p>Let's connect and collaborate on new ideas.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/pragya-singh-438508113" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://scholar.google.com/citations?user=fxfhl98AAAAJ&hl=en" class="google-scholar"><i class="bi bi-google"></i></a>
+          <a href="https://www.youtube.com/channel/UCkpL9eii6g4SpweK_znr15A" class="youtube"><i class="bx bxl-youtube"></i></a>
+          <a href="https://twitter.com/Pragya18rathore" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="https://github.com/alchemy18" class="github"><i class="bx bxl-github"></i></a>
+        </div>
+        <div class="copyright">
+          &copy; Copyright <strong><span>Pragya Singh</span></strong>. All Rights Reserved
         </div>
       </div>
-    </section><!-- End Contact Section -->
-  </main><!-- End #main -->
+    </footer>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>Pragya Singh</h3>
-      <p>Let's connect and collaborate on new ideas.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/pragya-singh-438508113" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?user=fxfhl98AAAAJ&hl=en" class="google-scholar"><i class="bi bi-google"></i></a>
-        <a href="https://www.youtube.com/channel/UCkpL9eii6g4SpweK_znr15A" class="youtube"><i class="bx bxl-youtube"></i></a>
-        <a href="https://twitter.com/Pragya18rathore" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="https://github.com/alchemy18" class="github"><i class="bx bxl-github"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Pragya Singh</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  </div><!-- End Content Wrapper -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -481,19 +369,17 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Add sidebar toggle functionality -->
+  <!-- Updated sidebar toggle functionality -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Get the toggle button and header elements
       const navToggle = document.querySelector('.mobile-nav-toggle');
-      const header = document.getElementById('header');
+      const body = document.body;
       
-      // Add click event to toggle menu
       navToggle.addEventListener('click', function() {
-        header.classList.toggle('header-active');
+        body.classList.toggle('sidebar-active');
         
         // Change the icon based on menu state
-        if (header.classList.contains('header-active')) {
+        if (body.classList.contains('sidebar-active')) {
           navToggle.classList.remove('bi-list');
           navToggle.classList.add('bi-x');
         } else {
@@ -506,9 +392,11 @@
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
         link.addEventListener('click', function() {
-          header.classList.remove('header-active');
-          navToggle.classList.remove('bi-x');
-          navToggle.classList.add('bi-list');
+          if (body.classList.contains('sidebar-active')) {
+            body.classList.remove('sidebar-active');
+            navToggle.classList.remove('bi-x');
+            navToggle.classList.add('bi-list');
+          }
         });
       });
     });
