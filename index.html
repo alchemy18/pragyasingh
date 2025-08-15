@@ -28,26 +28,6 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <style>
-    /* Hero Section Styling */
-    #hero {
-      width: 100%;
-      height: 100vh;
-      background: url('assets/Background.png') center center; /* Default background settings */
-      background-size: cover;
-      position: relative;
-    }
-
-    /* Media query for smaller screens */
-    @media (max-width: 768px) {
-      #hero {
-        min-height: 100vh; /* Ensure it takes full viewport height on mobile */
-      }
-      #hero h1 {
-        font-size: 28px;
-        line-height: 36px;
-      }
-    }
-
     .about-content {
       margin-top: 20px;
     }
@@ -117,38 +97,41 @@
       border-radius: 0 5px 5px 0;
     }
     
+    /* Add new styles for sidebar behavior */
     #header {
       position: fixed;
       top: 0;
-      left: -300px;
+      left: -300px; /* Start with sidebar hidden */
       bottom: 0;
       width: 300px;
       transition: all ease-in-out 0.5s;
       z-index: 9997;
       padding: 0 15px;
-      background: #040b14;
+      background: #040b14; /* Adjust if needed to match your current sidebar color */
     }
     
     #header.header-active {
-      left: 0;
+      left: 0; /* Show sidebar when active class is added */
     }
     
+    /* Make sure the main content always takes the full width by default */
     #main, #hero {
       margin-left: 0 !important;
       width: 100% !important;
       transition: all ease-in-out 0.5s;
     }
     
+    /* Position the mobile nav toggle on the left side instead of right */
     .mobile-nav-toggle {
       position: fixed;
-      left: 15px;
+      left: 15px; /* Changed from right to left */
       top: 15px;
       z-index: 9998;
       border: 0;
       font-size: 24px;
       transition: all 0.4s;
       outline: none !important;
-      background-color: #149ddd;
+      background-color: #149ddd; /* Adjust to match your theme */
       color: #fff;
       width: 40px;
       height: 40px;
@@ -160,12 +143,14 @@
       cursor: pointer;
     }
     
+    /* Make the mobile nav toggle visible on all screen sizes */
     .mobile-nav-toggle {
       display: block !important;
     }
 
+    /* New Footer Styles */
     #footer {
-      background: #f8f9fa;
+      background: #f8f9fa; /* A very light grey background */
       padding: 30px 0;
       text-align: center;
       font-size: 14px;
@@ -215,6 +200,7 @@
 <body>
 
   <!-- ======= Mobile nav toggle button ======= -->
+  <!-- Modified to be visible on all screen sizes by removing d-xl-none class -->
   <i class="bi bi-list mobile-nav-toggle"></i>
 
   <!-- ======= Header ======= -->
@@ -246,7 +232,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background: url('assets/Background.png') top center; background-size: cover;">
     <div class="hero-container" data-aos="fade-in">
       <h1>Pragya Singh</h1>
       <p>I'm <span class="typed" data-typed-items="PhD Scholar, Researcher, Thinker, Happy Soul, Always Curious"></span></p>
