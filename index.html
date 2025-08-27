@@ -147,6 +147,73 @@
     .mobile-nav-toggle {
       display: block !important;
     }
+
+     #hero {
+      width: 100%;
+      height: 100vh; /* Make sure it takes full viewport height */
+      background: url('assets/Background.png') no-repeat center center; /* Centered, no-repeat */
+      background-size: cover; /* Covers the entire section */
+      position: relative; /* Needed for content overlay */
+      display: flex; /* Flexbox for centering content */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center; /* Center the text */
+    }
+
+    /* Optional: Add an overlay for better text readability */
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+      z-index: 1; /* Place it above the background but below content */
+    }
+
+    #hero .hero-container {
+      position: relative; /* Bring content above the overlay */
+      z-index: 2;
+      color: #fff; /* Ensure text is white for contrast */
+      padding: 20px; /* Add some padding */
+    }
+
+    #hero h1 {
+      font-size: 48px; /* Adjust font size for desktop */
+      margin-bottom: 10px;
+    }
+
+    #hero p {
+      font-size: 24px; /* Adjust font size for desktop */
+    }
+
+    /* Media queries for smaller screens */
+    @media (max-width: 768px) {
+      #hero {
+        background-position: top center; /* Adjust position for mobile if needed */
+        height: 70vh; /* Slightly smaller height on mobile */
+      }
+      #hero h1 {
+        font-size: 36px; /* Smaller font on mobile */
+      }
+      #hero p {
+        font-size: 20px; /* Smaller font on mobile */
+      }
+    }
+
+    @media (max-width: 480px) {
+      #hero {
+        height: 60vh; /* Even smaller height on very small screens */
+      }
+      #hero h1 {
+        font-size: 28px;
+      }
+      #hero p {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -185,7 +252,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background: url('assets/Background.png') top center; background-size: cover;">
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Pragya Singh</h1>
       <p>I'm <span class="typed" data-typed-items="PhD Scholar, Researcher, Thinker, Happy Soul, Always Curious"></span></p>
